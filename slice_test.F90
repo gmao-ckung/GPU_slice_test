@@ -37,7 +37,9 @@ program slice_test
 
     call cpu_time(start_time)
 !$acc parallel present(A,B,C,constant)
-    C = A + constant*B    
+    do iter = 1,iterT
+        C = A + constant*B    
+    enddo
 !$acc end parallel
     call cpu_time(end_time)
     
